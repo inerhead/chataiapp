@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-input">
+            <input type="text" id="prompt" placeholder="Enter your message here...">
+            <button id="sendButton">Send</button>
+        </div>
+        <div class="response-grid" id="responseGrid">
+            <!-- Chatbot responses will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const prompt = document.getElementById('prompt').value;
+            if (prompt) {
+                const responseGrid = document.getElementById('responseGrid');
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerText = `Response to: ${prompt}`;
+                responseGrid.appendChild(card);
+                document.getElementById('prompt').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
+
+.card {
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
